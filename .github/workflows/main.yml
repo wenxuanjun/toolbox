@@ -23,7 +23,7 @@ jobs:
       - name: Build project
         run: |
           cargo build --release
-          mv target/release/toolbox.exe 图吧工具箱.exe
+          mv target/release/toolbox.exe TBToolbox.exe
 
       - name: Get current date
         id: date
@@ -34,4 +34,4 @@ jobs:
         with:
           name: ${{ steps.date.outputs.date }}
           tag_name: ${{ steps.date.outputs.date }}
-          files: 图吧工具箱.exe
+          files: TBToolbox.exe
