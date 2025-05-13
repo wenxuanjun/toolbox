@@ -132,7 +132,11 @@ impl ToolboxApp {
     fn show_tools_ui(&mut self, ui: &mut Ui) {
         let category_name = &self.categories[self.selected_category];
 
-        ui.heading(format!("分类: {category_name}"));
+        ui.heading(if self.search_query.is_empty() {
+            format!("分类: {category_name}")
+        } else {
+            format!("搜索: {}", self.search_query)
+        });
         ui.separator();
 
         let filtered_tools: Vec<(usize, &Tool)> = self
